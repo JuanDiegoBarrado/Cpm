@@ -13,7 +13,7 @@ public class englishSymbolsError {
         String[] args = {"launch/test/lexicon/testingCodes/englishSymbolsError.cpm"}; // File that will be tested
         ReconLexicon.main(args);
         
-        // this test shouldnt detect any errors in the lexic
+        // this test should detect some errors in the lexic
         assertEquals(22, ALexOperations.numberErrors);
         assertEquals(true, ALexOperations.errorDetected);
     }

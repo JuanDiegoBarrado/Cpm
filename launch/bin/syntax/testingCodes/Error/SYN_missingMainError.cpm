@@ -12,7 +12,7 @@ estrut myStruct {
 
 func function(int n, bul b, bul array[], myStruct str, int& pos) : bul {
     bul result;
-    if ((n == 0) an b) {
+    if ((n == 0) and b) {
         result = array[pos];
     }
     else {

@@ -40,7 +40,7 @@ func mein() :int {
     bul c = (); 
     bul c = (());
     bul c = (a, b, 5); 
-    bul _and = a an an b;
+    bul _and = a and and b;
     int _sum = a + + b;
     int d = register.;
     int d = ptr~;

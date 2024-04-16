@@ -5,7 +5,7 @@ func mein() :int {
     //ERROR: Missing semicolon: ;
     bul b = false 
     
-    bul _and = a an b;
+    bul _and = a and b;
 
     
     return 0;
