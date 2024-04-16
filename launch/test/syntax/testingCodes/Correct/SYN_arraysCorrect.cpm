@@ -1,0 +1,90 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+clas myClass {
+    public int a;
+    praivet bul b;
+
+    myClass(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+    public func classMethod(bul result, int num): bul {
+        if (num > 0) { dis.b = result; }
+        return b;
+    } 
+
+}
+
+func mein() :int {
+    int arrayInt[4];
+    //Inicialization:
+    arrayInt [0] = -1;
+    arrayInt [1] = 0;
+    arrayInt [2] = 1;
+    arrayInt [3] = 3;
+    //------------------
+    
+    bul arrayBool[5];
+    //Inicialization:
+    arrayBool [0] = tru;
+    arrayBool [1] = tru;
+    arrayBool [2] = tru;
+    arrayBool [3] = fols;
+    arrayBool [4] = fols;
+    //-------------------
+
+    int~ arrayPointersInt[12];
+
+    arrayInt[1] = 3;
+    arrayBool[2] = fols; 
+    //arrayPointersInt[10] = niu int; We dont accept this..........................................................
+    arrayPointersInt[10] = &arrayInt[0];
+    ~arrayPointersInt[10] = -35;
+
+    int matrixInt[3][3];
+    //Inicialization:
+    matrxInt[0][0] = 0; matrxInt[0][1] = 1; matrxInt[0][2] = 2;
+    matrxInt[1][0] = 3; matrxInt[1][1] = 4; matrxInt[1][2] = 5;
+    matrxInt[0][0] = -1; matrxInt[0][1] = -2; matrxInt[0][2] = -3;
+    //-------------------
+    
+    matrixInt[0][2] = -7;
+
+    myStruct structArray[2];
+    //Inicialization:
+    structArray[0].a = 2; structArray[0].b = fols; // This naturally associates with (structArray[0]).a   
+    structArray[1] = myStruct(1, tru);
+    //-------------------
+
+    structArray[2].a = 100;
+
+    int~ arrayPtr[4]; //Array of Int_pointers
+    ~arrayPtr[0] = arrayInt[0]; // This naturally associates with ~(arrayPtr[0]) 
+    ~arrayPtr[1] = arrayInt[1];  
+    ~arrayPtr[2] = arrayInt[2];
+    ~arrayPtr[3] = arrayInt[3];
+
+    //Array Class
+    myClass arrayClass[2];
+    arrayClass[0] = myClass(~arrayPtr[0], arrayBool[0]);
+    arrayClass[1] = myClass(~arrayPtr[1], arrayBool[1]);
+
+    //Array Pointers to Classes
+    myClass~ arrayClass[2];
+    arrayClass[0] = niu myClass(~arrayPtr[0], arrayBool[0]);
+    arrayClass[1] = niu myClass(~arrayPtr[1], arrayBool[1]);
+
+
+    return 0;
+}

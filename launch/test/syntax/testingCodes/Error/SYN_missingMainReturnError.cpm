@@ -1,0 +1,19 @@
+//Finished
+func mein() :int {
+    int a = 1;
+    int b = -2;
+    int _sum = a + b;
+    int _sub = a - b;
+    int _mul = a * b;
+    int _div = a / b;
+    int _pow = a^b;
+    int _parenthesis = (a);
+    bul _less = a < b;
+    bul _great = a > b;
+    bul _eq a == b;
+    bul _leq a <= b;
+    bul _geq = a >= b;
+    bul _neq = a != b;
+
+    // missing this: return 0;
+}

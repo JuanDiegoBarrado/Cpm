@@ -1,0 +1,9 @@
+int~ pointerInt;
+bul~ pointerBul;
+struct~ pointerStruct;
+pointer := niu int;
+~pointer;
+
+int~~ pointerPointerInt
+~~~~p;
+~(~(p));

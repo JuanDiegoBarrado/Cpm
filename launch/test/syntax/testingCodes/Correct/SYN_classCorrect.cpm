@@ -1,0 +1,28 @@
+//Finished
+clas myClass {
+    public int a;
+    praivet bul b;
+
+    myClass(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+    public func classMethod(bul result, int num): bul {
+        if (num > 0) { dis.b = result; }
+        return b;
+    } 
+
+}
+
+func mein() :int {
+    int x = 0;
+    bul y = fols;
+    myClass~ c_alloc = niu myClass(x, y);
+    myClass d = myClass(x, tru);
+    int num = (~c_alloc).a;
+    bul result = tru;
+    bul aux = d.classMethod(result, num);
+
+    return 0;
+}

@@ -1,0 +1,13 @@
+//Finished
+func mein() :int {
+    bul a = tru;
+    bul b = false;
+    bul _and = a and b;
+    bul _or = a or b; 
+    bul _notA = !a;
+    bul _notB = !b;
+    bul _eq = a == b;
+    bul _neq = a != b;
+    
+    return 0;
+}

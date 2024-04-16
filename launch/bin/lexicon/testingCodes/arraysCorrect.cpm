@@ -1,0 +1,12 @@
+int [4] arrayInt;
+bul [5] arrayBool;
+struct [2] arrayStruct;
+int~ [12] arrayPointersInt;
+
+arrayInt[0];
+arrayBool[1];
+arrayStruct[0];
+arrayPointersInt[10];
+
+int [3][4] matrixInt;
+matrixInt [0][2];

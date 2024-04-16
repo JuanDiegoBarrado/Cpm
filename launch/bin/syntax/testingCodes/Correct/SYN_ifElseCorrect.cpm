@@ -1,0 +1,16 @@
+//Finished
+func mein() :int {
+    bul b = tru;
+    int n = 0;
+    if (b == false) {
+        n = n + 1;
+    }
+    els {
+        n = n - 1;
+    }
+
+    ; // empty instruction
+
+
+    return 0;
+}

@@ -1,0 +1,5 @@
+taipdef i int;
+taipdef bigMatrix int[10][50][200];
+taipdef pint int~;
+
+difain INT_CONST 0;

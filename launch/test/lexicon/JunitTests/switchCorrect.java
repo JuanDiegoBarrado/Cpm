@@ -1,23 +1,16 @@
-package launch.test.lexicon.JunitTests;
+package lexicon.JunitTests;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-
 import org.junit.Test;
-
-import launch.src.lexicon.ALexOperations;
-import launch.src.lexicon.ReconLexicon;
-import lexicon.src.*;
+import lexicon.*;
 
 
 public class switchCorrect {
     
     @Test
-    public void testswitchCorrect() throws FileNotFoundException, IOException {
-        String[] args = {"lexicon/test/testingCodes/switchCorrect.cpm"}; // File that will be tested
+    public void testswitchCorrect() throws Exception {
+        String[] args = {"launch/test/lexicon/testingCodes/switchCorrect.cpm"}; // File that will be tested
         ReconLexicon.main(args);
         
         // this test shouldnt detect any errors in the lexic

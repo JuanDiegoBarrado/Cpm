@@ -1,0 +1,12 @@
+//Finished
+func mein() :int {
+    bul a = tru;
+
+    //ERROR: Missing semicolon: ;
+    bul b = false 
+    
+    bul _and = a an b;
+
+    
+    return 0;
+}

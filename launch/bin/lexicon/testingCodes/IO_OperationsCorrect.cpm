@@ -1,0 +1,4 @@
+int in;
+cein(in);
+int num := 5 + in;
+ceaut(num);

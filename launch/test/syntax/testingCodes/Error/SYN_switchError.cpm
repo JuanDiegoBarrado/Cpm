@@ -1,0 +1,171 @@
+//Finished
+func mein() :int {
+    errorB = fols;
+    bul varBool = tru; //Bool variable
+    bul varBoolToInt;
+
+    //ERROR: Missing compulsory break in default
+    suich (varBool) {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+    }
+
+
+    //ERROR: Missing colon in case
+    suich (varBool) {
+        queis (fols) 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+
+    //ERROR: Missing colon in default
+    suich (varBool) {
+        queis (fols):
+            varBoolToInt = 0;
+            breic;        
+        difolt
+            varBoolToInt = 1;
+            breic;
+    }
+
+
+    //ERROR: missing end parentesis in switch
+    suich (varBool {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+
+    //ERROR: missing end parentesis in case
+    suich (varBool) {
+        queis (fols: 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+    //ERROR: Missing end bracket
+    suich (varBool) {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+
+
+    //ERROR: switch should have the comparing variable enclosed in parenthesis
+    suich varBool {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+
+    //ERROR: switch should have after case the value of the variable compared enclosed in parenthesis
+    suich (varBool) {
+        queis fols: 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+    
+    //ERROR: switch should have brackets: {}
+    suich (varBool)
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+
+
+    //ERROR: missing comparing variable after the key word suich
+    suich {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+    //ERROR: missing comparing valur of the variable compared after the key word case
+    suich (varBool) {
+        queis: 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+    //ERROR: TWO KEY WORDS THAT SHOULDNT BE TOGETHER (several examples:)
+
+    suich breic (varBool) { //breic before (varBool)
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    } 
+
+    suich (varBool) breic { //breic after (varBool)
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+    suich (varBool) { 
+        queis breic (fols): //breic after queis
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    } 
+
+    suich (varBool) { 
+        queis (fols) breic: //breic between (expresion) and colons 
+            varBoolToInt = 0;
+            breic;        
+        difolt:
+            varBoolToInt = 1;
+            breic;
+    }
+
+    suich (varBool) { 
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;        
+        difolt breick: //breic after difolt
+            varBoolToInt = 1;
+            breic;
+    }
+
+    // ------------- END TWO KEY WORDS TOGETHER ERRORS ---------------
+
+    return 0;
+}

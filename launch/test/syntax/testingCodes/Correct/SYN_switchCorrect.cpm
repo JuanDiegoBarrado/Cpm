@@ -1,0 +1,41 @@
+//Finished
+func mein() :int {
+    bul errorI = fols;
+    int varInt = 0; //Binary variable
+    bul varIntToBool; 
+
+
+    suich (varInt) {
+        queis (0): 
+            varIntToBool = fols;
+            breic;
+        queis (1):
+            varIntToBool = tru;
+            breic;
+        difolt:
+            errorI = tru;
+            breic;
+    } 
+
+    // ------------------------------
+
+    errorB = fols;
+    bul varBool = tru; //Bool variable
+    bul varBoolToInt;
+
+/*
+    suich (varBool) {
+        queis (fols): 
+            varBoolToInt = 0;
+            breic;
+        queis (tru):
+            varBoolToInt = 1;
+            breic;
+        difolt:
+            errorB = tru;
+            breic;
+    }
+    */
+
+    return 0;
+}

@@ -1,0 +1,36 @@
+//Finished
+func mein() :int {
+    int n = 10;
+    guail (n > 0) {
+        if (n == 5) breic;
+        if (n == 9) continiu;
+        n = n - 1;
+    }
+
+    guail(tru) //ERROR: guail should have {} 
+        n = n + 1; 
+
+    guail { //ERROR: guail should have (expresion)
+        n = n + 1; 
+    }
+
+    guail tru { //ERROR: guail should have the expresion enclosed in parenthesis
+        n = n + 1; 
+    }
+
+    guail breic (tru) { //ERROR: anything cant be between guail and (expresion)
+        n = n + 1; 
+    }
+
+    guail (tru) continiu { //ERROR: anything cant be between (expresion) and bracket_open
+        n = n + 1; 
+    }
+
+    guail (tru { //ERROR: missing end parenthesis
+         n = n + 1; 
+    }
+
+    guail (tru) { //ERROR: missing end bracket
+
+    return 0;
+}

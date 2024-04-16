@@ -1,0 +1,17 @@
+suich (var) {
+    queis (1): 
+    breic;
+    queis (0):
+    breic;
+    difolt:
+    breic;
+}
+
+suich (var) {
+    queis (tru): 
+    breic;
+    queis (fols):
+    breic;
+    difolt:
+    breic;
+}

@@ -1,0 +1,3 @@
+func function(int n, bul b, int[] array, estrut myStruct, int& int) : bul {
+    return fols;
+} 

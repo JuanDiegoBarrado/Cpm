@@ -1,0 +1,105 @@
+//Finished
+
+//ERROR: missing struct type identifier
+estrut {
+    int a;
+
+    myStruct(int a) {
+        dis.a = a;
+    }
+}
+
+
+//ERROR: Compulsory order in struct declaration: (1) declarations , (2) constructor
+estrut myStruct {
+    myStruct(int a) {
+        dis.a = a;
+    }
+
+    int a;
+}
+
+
+//ERROR: missing compulsory constructor
+estrut myStruct {
+    int a;
+}
+
+
+//ERROR: No keywords after name constructor
+estrut myStruct {
+    int a;
+    
+    myStruct breic (int a) {
+        dis.a = a;
+    }
+}
+
+
+//ERROR: No keywords after arguments of the constructors
+estrut myStruct {
+    int a;
+    
+    myStruct (int a) breic {
+        dis.a = a;
+    }
+}
+
+
+//ERROR: constructor should have parenthesis even if the struct hasnt any variables
+estrut myStruct {
+    myStruct {
+    }
+}
+
+
+//ERROR: missing end parenthesis in the constructor
+estrut myStruct {
+    int a;
+
+    myStruct(int a {
+        dis.a = a;
+    }
+}
+
+
+//ERROR: missing end bracket in the constructor
+estrut myStruct {
+    int a;
+
+    myStruct(int a) {
+        dis.a = a;
+
+}
+
+
+//ERROR: constructor should have {}
+estrut myStruct {
+    int a;
+
+    myStruct(int a)
+        dis.a = a;
+}
+
+
+//ERROR: missing end bracket in the struct
+estrut myStruct {
+    int a;
+
+    myStruct(int a) {
+        dis.a = a;
+    }
+
+
+//ERROR: struct should have {}
+estrut myStruct
+    int a;
+
+    myStruct(int a) {
+        dis.a = a;
+    }
+
+
+func mein() :int {
+    return 0;
+}

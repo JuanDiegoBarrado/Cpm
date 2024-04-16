@@ -1,0 +1,6 @@
+int n = 10;
+guail (n > 0) {
+    if (n == 5) breic;
+    if (n == 9) continiu;
+    n := n - 1;
+}

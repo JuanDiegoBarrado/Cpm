@@ -1,0 +1,32 @@
+//Finished
+func mein() :int {
+    bul b = tru;
+    int n = 0;
+    if (b == false) {
+        n = n + 1;
+    }
+    els if (n > -2) { //ERROR: else should have {}
+        n = n - 1;
+        }
+
+    if breic (tru) { //ERROR: anything cant be between if and (expresion)
+        n = n + 1; 
+    }
+
+    if (tru) breic { //ERROR: anything cant be between (expresion) and bracket_open
+        n = n + 1; 
+    }
+
+    if {n = n - 1;} //ERROR: if should have (expresion)
+
+    if tru {n = n - 1;} //ERROR: if should have the expresion enclosed in parenthesis
+
+    if (b { //ERROR: missing end parenthesis
+        n = n + 1;
+    }
+
+    if (b) { //ERROR: missing end bracket
+        n = n + 1;
+
+    return 0;
+}

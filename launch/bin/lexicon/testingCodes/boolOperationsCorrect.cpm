@@ -1,0 +1,10 @@
+bul a := tru;
+bul b := false;
+a an b;
+a or b; 
+!a;
+!b;
+a == b;
+a != b;
+
+:)

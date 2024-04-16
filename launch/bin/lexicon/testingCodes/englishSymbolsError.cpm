@@ -1,0 +1,24 @@
+int b@ := 0;
+int @b := 0;
+int b$ := 0;
+int $b := 0;
+int b# := 0;
+int #b := 0;
+int b? := 0;
+int ?b := 0;
+
+bul b@ := tru;
+bul @b := fols;
+bul b$ := tru;
+bul $b := fols;
+bul b# := tru;
+bul #b := fals;
+bul b¿ := tru;
+bul ¿b := fals;
+bul b¡ := tru;
+bul ¡b := fals;
+
+| := 0;
+" := 0;
+` := 0;
+' := 0;

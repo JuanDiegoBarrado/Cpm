@@ -1,0 +1,26 @@
+//Finished
+func mein() :int {
+    int in;
+
+    //ERROR: cein must be identifiers
+    cein(4);
+    cein(aux + 5);
+    cein(ceaut(in)); 
+    cein(bul);
+    cein(guail);
+    cein(breic);
+    cein(els);
+    cein({})
+
+    // ceaut arguments must be identifiers or expresions
+    ceaut(cein(in));
+    ceaut(int);
+    ceaut(guail);
+    ceaut(breic);
+    ceaut(els);
+    ceaut({})
+
+    return 0;
+}
+
+$$ Must be changed to introduce$ in the cin the posibility to accept structVariable.var $$

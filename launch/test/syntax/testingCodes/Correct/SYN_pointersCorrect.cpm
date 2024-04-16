@@ -1,0 +1,78 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+clas myClass {
+    public int a;
+    praivet bul b;
+
+    myClass(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+    public func classMethod(bul result, int num): bul {
+        if (num > 0) { dis.b = result; }
+        return b;
+    } 
+
+}
+
+func mein() :int {
+    int aux = 3;
+
+    //Normal ptrs
+    int~ ptrInt = niu int;
+    bul~ ptrBul = niu bul;
+    ~ptrInt = &aux; //Aux memory address
+    ~ptrBul = fols;
+
+    //Struct ptr
+    myStruct structAux = myStruct(~ptrInt, ~ptrBul);
+    myStruct~ ptrStruct1 = niu myStruct(~ptrInt, ~ptrBul);
+    myStruct~ ptrStruct2;
+    ~ptrStruct2 = structAux;
+    (~ptrStruct1).a = 4;
+    (~ptrStruct2).b = tru;
+
+    //Ptr-ptr
+    int~~ ptrPtrInt;
+    ~ptrPtrInt = ptrInt;
+    ~(~(ptrPtrInt)) = 7;
+
+    int arrayInt[4];
+    //Inicialization:
+    arrayInt [0] = -1;
+    arrayInt [1] = 0;
+    arrayInt [2] = 1;
+    arrayInt [3] = 3;
+    //------------------
+
+    int~ ptrArray = arrayInt; //The pointer is pointing to the array
+    (~ptrArray)[1] = 3; //These parenthesis is compulsory
+
+// ------------------------------------------
+
+
+
+    //Array of Int_pointers
+    int~ arrayPtr[4]; 
+    ~arrayPtr[0] = arrayInt[0];
+    arrayPtr[1] = &arrayInt[1];
+    arrayPtr[2] = &arrayInt[2];
+    ~arrayPtr[3] = arrayInt[3];
+
+    //Class pointer
+    myClass~ ptrClass = niu myClass(~ptrInt, ~ptrBul);
+    (~ptrClass).a = 4;
+
+    return 0;
+}

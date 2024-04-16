@@ -1,0 +1,54 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+func function(int n, bul b, bul array[], myStruct str, int& pos) : bul {
+    bul result;
+    if ((n == 0) and b) {
+        result = array[pos];
+    }
+    els {
+        pos = str.a;
+        result = array[n];
+    }
+    return result;
+}
+
+func simpleFunction(bul result, int num): bul {
+    bul aux = tru;
+    if (num > 0) {aux = result;}
+    return b;
+} 
+
+
+func voidFunction(int num) {
+    int result = num + 1;
+    ceaut(result);
+    return;
+} 
+
+func mein() :int {
+    int n;
+    bul b = tru;
+    myStruct str = myStruct(5, fols);
+    int pos;
+    bul arrayBool[2];
+    arrayBool [0] = tru; arrayBool[1] = fols;
+
+    cein(n);
+    cein(pos);
+
+    bul aux = function(n, b, arrayBool, str, pos);
+
+    bul simpFunc_result = simpleFunction(function(n, b, arrayBool, str, pos) or b, n + 100);
+
+    return 0;
+}

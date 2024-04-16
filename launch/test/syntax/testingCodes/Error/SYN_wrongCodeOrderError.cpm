@@ -1,0 +1,28 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+func mein() :int { //ERROR: The code must end with main function
+    int n;
+    bul b = tru;
+
+    cein(n);
+
+    bul simpFunc_result = simpleFunction(b, n);
+
+    return 0;
+}
+
+func simpleFunction(bul result, int num): bul {
+    bul aux = tru;
+    if (num > 0) {aux = result}
+    return b;
+} 

@@ -1,0 +1,15 @@
+estrut myStruct {
+    public int a;
+    praivet bul b;
+
+    myStruct(int a, bul b) {
+        dis.a := a;
+        dis.b := b;
+    }
+
+};
+
+int x := 0;
+bul y := fols;
+myClass c = niu myClass(x, y);
+c.a;

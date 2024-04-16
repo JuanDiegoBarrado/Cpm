@@ -1,0 +1,18 @@
+//Finished
+func mein() :int {
+    int a = 0;
+    int z = 1000000;
+    int A = 0x2fa34;
+    int Z = 0b100001;
+    int b1 = 13040330;
+    int _c = 0b0;
+
+    bul a = tru;
+    bul z = fols;
+    bul A = tru;
+    bul Z = fols;
+    bul b1 = tru;
+    bul _c = fols;
+    
+    return 0;
+}

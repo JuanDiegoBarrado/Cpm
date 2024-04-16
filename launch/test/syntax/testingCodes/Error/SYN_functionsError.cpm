@@ -1,0 +1,69 @@
+//Finished
+
+//ERROR: function should have parenthesis even if it hasnt any arguments
+func simpleFunction: bul {
+    return tru;
+} 
+
+
+//ERROR: missing end parenthesis after the function arguments
+func simpleFunction(bul result: bul {
+    return b;
+} 
+
+
+//ERROR: missing end bracket after of function body
+func simpleFunction(bul result): bul {
+    return b;
+
+
+//ERROR: function body should be enclosed in brackets
+func simpleFunction(bul result): bul 
+    return b;
+
+
+//ERROR: missing coma separating the arguments
+func simpleFunction(bul result  int n): bul {
+    return b;
+} 
+
+
+//ERROR: missing colon between type and arguments
+func simpleFunction(bul result) bul {
+    return b;
+} 
+
+
+//ERROR: missing return in a typed function 
+func simpleFunction(bul result): bul {
+} 
+
+
+//ERROR: missing return value in a typed function 
+func simpleFunction(bul result): bul {
+    return;
+} 
+
+
+//ERROR: missing return in a void function 
+func voidFunction(int num) {
+    int result = num + 1;
+    ceaut(result);
+}  
+
+
+//ERROR: wrong return value in a void function 
+func voidFunction(int num) {
+    int result = num + 1;
+    ceaut(result);
+    return result;
+}  
+
+
+func mein() :int {
+    bul b = tru;
+
+    bul simpFunc_result = simpleFunction(b; //ERROR: missing end parenthesis
+
+    return 0;
+}

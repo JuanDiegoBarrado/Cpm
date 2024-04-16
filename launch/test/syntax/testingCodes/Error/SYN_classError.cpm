@@ -1,0 +1,202 @@
+//Finished
+
+//ERROR: missing struct type identifier
+clas {
+    praivet int a;
+
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERRORS: Compulsory order in struct declaration: (1) declarations , (2) constructor , (3) methods
+
+clas myClass {
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    praivet int a;
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+clas myClass {
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+
+    praivet int a;  
+}
+
+clas myClass {
+    praivet int a;  
+
+    public func getA(): int {
+        return dis.a;
+    } 
+
+    myClass(int a) {
+        dis.a = a;
+    }
+}
+
+clas myClass { 
+    public func getA(): int {
+        return dis.a;
+    } 
+
+    praivet int a; 
+
+    myClass(int a) {
+        dis.a = a;
+    }
+}
+
+// --------------------- END ORDER ERRORS ------------------------
+
+
+
+//ERROR: missing compulsory constructor
+clas myClass {
+    praivet int a;
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: No keywords after name constructor
+clas myClass {
+    praivet int a;
+
+    myClass breic (int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: No keywords after arguments of the constructors
+clas myClass {
+    praivet int a;
+
+    myClass(int a) breic {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: constructor should have parenthesis even if the struct hasnt any variables
+clas myClass {
+    myClass {
+    }
+
+    public func get0(): int {
+        return 0;
+    } 
+}
+
+
+//ERROR: missing end parenthesis in the constructor
+clas myClass {
+    praivet int a;
+
+    myClass(int a {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: missing end bracket in the constructor
+clas myClass {
+    praivet int a;
+
+    myClass(int a) {
+        dis.a = a;
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: constructor should have {}
+clas myClass {
+    praivet int a;
+
+    myClass(int a)
+        dis.a = a;
+
+
+    public func getA(): int {
+        return dis.a;
+    } 
+}
+
+
+//ERROR: missing end bracket in the class
+clas myClass {
+    praivet int a;
+
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+
+
+//ERROR: struct should have {}
+clas myClass 
+    praivet int a;
+
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int {
+        return dis.a;
+    } 
+
+
+clas myClass {
+    int a; //ERROR: missing visibility in the variable
+
+    myClass(int a) {
+        dis.a = a;
+    }
+
+    public func getA(): int { //ERROR: missing visibility in the function
+        return dis.a;
+    } 
+}
+
+
+func mein() :int {
+    return 0;
+}

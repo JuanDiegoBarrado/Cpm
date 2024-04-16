@@ -1,0 +1,14 @@
+//Finished
+
+taipdef i int int; //ERROR: wrong type
+taipdef bigMatrix int[3][3];
+taipdef pint int~;
+
+// ERROR: Must be a literal (integer, tru, fols)
+difain INT_CONST 1 + 5; 
+difain INT_CONST a;
+
+func mein() :int {
+
+    return 0;
+}

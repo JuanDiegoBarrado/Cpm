@@ -1,0 +1,23 @@
+//Finished
+taipdef int i //we arent using semicolons in the typedef instruction
+taipdef int bigMatrix[3][3]
+taipdef int~ pint
+
+difain INT_CONST 0;
+difain BOOL_CONST tru;
+
+func mein() :int {
+    
+    bigMatrix matrixInt;
+    matrxInt[0][0] = 0; matrxInt[0][1] = 1; matrxInt[0][2] = 2;
+    matrxInt[1][0] = 3; matrxInt[1][1] = 4; matrxInt[1][2] = 5;
+    matrxInt[0][0] = -1; matrxInt[0][1] = -2; matrxInt[0][2] = -3;
+
+    bul b = BOOL_CONST;
+    i n = INT_CONST;
+
+    pint ptr;
+    ~ptr = n;
+
+    return 0;
+}

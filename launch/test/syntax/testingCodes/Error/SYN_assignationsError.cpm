@@ -1,0 +1,154 @@
+//Finished
+func mein() :int {
+    //ERROR: Two types together before the id
+    int bul a = 0; 
+    bul int a = tru;
+    int int[4] a = 5;
+
+    int a =; //ERROR: missing expresion after =
+    int = 5; //ERROR: missing identifier on the left side
+    int z == 1000000; //ERROR: == isnt the assignation_operator
+    bul z != fols; //ERROR: != isnt the assignation_operator
+    int z := -1; //ERROR: Two symbols that cant be put together (: and =)
+    int = = 0b0; //ERROR: An equal_operator in the id position
+
+    //ERROR: WRONG EXPRESIONS
+    // ------- Begin of wrong expresions ------------
+
+
+    // Wrong symbols in expresions
+    int a = :;
+    bul a = ->;
+    int a = {};
+    int a = {1, 2, 4};
+
+    // Missing things
+    int a = [];
+    int a = [5];
+    int a = array[[5]];
+    int a = array[5]5;
+    int a = array[5]b;
+    int a = array[];
+    int a = [tru];
+    int a = &;
+    bul a = ~; 
+    bul a = .;
+    bul a = or; 
+    int a = *;
+    bul c = !;
+    bul c = -;
+    bul c = (); 
+    bul c = (());
+    bul c = (a, b, 5); 
+    bul _and = a an an b;
+    int _sum = a + + b;
+    int d = register.;
+    int d = ptr~;
+
+    // Need for parenthesis because they arent associative
+    int a = -----4;
+    int a = ~~~~a;
+    int a = 2^3^5;
+    bul b = !!!!!tru;
+    bul b = 0 < 1 < 2;
+    bul b = 0 > 1 > 2;
+    bul b = 0 <= 1 <= 2;
+    bul b = 0 >= 1 >= 2;
+    bul b = 0 == 1 == 2;
+    bul b = 0 != 1 != 2;
+    int a = s.a.v
+
+
+    // ------- End of wrong expresions ------------
+
+
+    //ERRORS: Two keywords together
+    int if = 0x2fa34;
+    int guail = 0b100001;
+    int suich = 13040330;
+    bul clas = tru;
+    bul estruct = fols;
+    int main = 0; //Common mistake comming from other languages to write int main
+    bul func = fols;
+    int difolt = 0;
+    int breic = 0;
+    int cein(a) = 0;
+    int continiu = 0;
+
+
+
+    
+    // --------------------- STRUCTS -------------------------- 
+    //ERRORS: common assignation left side errors with structs 
+
+    //wrong first declaration:
+    myStruct. register;
+    myStruct register.a;
+    myStruct. register = ;
+
+    //wrong next assignations:
+    register. = 0;
+    .register = 0;
+    . = 0;
+    // ------------------- END STRUCTS -------------------------
+
+
+
+    // --------------------- CLASSES -------------------------- 
+    //ERRORS: common assignation left side errors with classes 
+
+    //wrong first declaration:
+    myClass. auxClass;
+    myClass auxClass.a;
+    myClass. auxClass = ;
+
+    //wrong next assignations:
+    auxClass. = 0;
+    .auxClass = 0;
+    . = 0;
+
+    // ------------------- END CLASSES -------------------------
+
+
+
+    // --------------------- ARRAYS -------------------------- 
+    //ERRORS: common assignation left side errors with arrays 
+
+    //wrong first declaration:
+    int[] array;
+    int[5] array;
+    []int array;
+    int[[]] array;
+    int[[5]] array;
+    int[~] array;
+    int array[[]];
+    int array[[5]];
+    int array[~];
+
+    //wrong next assignations:
+    array[] = 0;
+    array[[]] = 0;
+    array[[5]] = 0;
+    array[3]b = 12;
+    array[3]3 = 12;
+    [5] = 0;
+    [] = 0;
+    // -------------------- END ARRAYS -------------------------
+
+
+
+    // --------------------- POINTERS -------------------------- 
+    //ERRORS: common assignation left side errors with pointers 
+
+    //wrong first declaration:
+    ~int ptr;
+    int ptr~;
+
+    //wrong next assignations:
+    ptr~ = 0;
+    ~ = 0;
+    // ------------------- END POINTERS -------------------------
+
+
+    return 0;
+}

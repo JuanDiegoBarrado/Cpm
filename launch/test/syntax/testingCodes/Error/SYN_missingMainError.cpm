@@ -1,0 +1,25 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+func function(int n, bul b, bul array[], myStruct str, int& pos) : bul {
+    bul result;
+    if ((n == 0) an b) {
+        result = array[pos];
+    }
+    else {
+        pos = str.a;
+        result = array[n];
+    }
+    return result;
+}
+
+//ERROR: missing main function

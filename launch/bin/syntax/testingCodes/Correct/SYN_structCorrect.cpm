@@ -1,0 +1,41 @@
+//Finished
+estrut myStruct {
+    int a;
+    bul b;
+
+    myStruct(int a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+estrut structwthPtr {
+    int~ a;
+    bul b;
+
+    structwthPtr(int~ a, bul b) {
+        dis.a = a;
+        dis.b = b;
+    }
+
+}
+
+func mein() :int {
+    int x = 0;
+    bul y = fols;
+    myStruct~ c = niu myStruct(x, y);
+    myStruct register = myStruct(5, tru);
+    int num = (~c).a; //These parenthesis are compulsory
+    bul result = register.b;
+    bul aux;
+
+    if (num > 0) { aux = result; }
+
+    int~ intPtr;
+    ~intPtr = x;
+    structwthPtr s_ptr = structwthPtr (intPtr, y);
+    ~s_ptr.a = 100; //This naturally associates with ~(s_ptr.a)
+
+    return 0;
+}

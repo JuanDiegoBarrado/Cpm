@@ -1,0 +1,6 @@
+func mein() :int {
+    int i;
+
+
+    return 0;
+}
