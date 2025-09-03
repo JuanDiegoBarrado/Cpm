@@ -44,15 +44,7 @@ Su principal característica es que **las palabras reservadas se escriben fonét
 Por ejemplo:
 - `while` → `guail`  
 - `switch` → `suich`  
-- `if` → `if` (sin cambios) 
-
-This repository contains the full **compiler implementation**, including:  
-- **Lexical analysis**  
-- **Syntax analysis**  
-- **Semantic analysis**  
-- **Error handling**  
-- **Binding & typing**  
-- **Code generation**
+- `if` → `if` (sin cambios)
 
 Este repositorio contiene la **implementación completa de su compilador**, que incluye:
 - **Análisis léxico**
