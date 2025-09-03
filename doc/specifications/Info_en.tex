@@ -1,0 +1,573 @@
+\documentclass[10pt,a4paper]{article}
+
+%% Formateo del título del documento
+\title{\Huge C$+$$-$}
+\author{Juan Diego Barrado Daganzo, Javier Saras González and Daniel González Arbelo \\ 4th year}
+\date{}
+%% Formateo del estilo de escritura y de la pagina
+\pagestyle{plain}               % Estilo de página
+\setlength{\parskip}{0.35cm}    % Edicion de espaciado
+\setlength{\parindent}{0cm}     % Edicion de sangría
+\clubpenalty=10000              % Llíneas viudas NO
+\widowpenalty=10000             % Líneas viudas NO
+
+%% Para establecer las medidas de los margenes
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry} 
+%% Para que el idioma por defecto sea español
+\usepackage[spanish]{babel}
+%% Para poder subrayar entornos especiales como las secciones
+\usepackage{ulem}
+
+%% Texto matematico y simbolos especiales
+\usepackage{amsmath}    % Paquete para mates
+\usepackage{amsfonts}   % Paquete para mates
+\usepackage{amssymb}    % Paquete para mates
+\usepackage{stmaryrd}   % Paquete para mates
+\usepackage{latexsym}   % Paquete para mates
+
+%% Paquete para incluir imágenes y ruta de la carpeta de las imágenes
+\usepackage{graphicx}
+\graphicspath{{./fotos/}}
+
+%% Paquete para tener hipervínculos y referencias cruzadas
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+	urlcolor=red,
+	linkcolor=brown,
+}
+
+%% Paquete para incluir código con coloreado sintáctico
+\usepackage{listings}
+\lstdefinelanguage{C+-}
+{
+  keywords={
+    if, els, guail, breic, continue, for,
+    suich, queis, difolt,
+    cein, ceaut,
+    return
+    },
+  keywordstyle=\color{blue},
+  emph={int, bul, func, tru, fols, estrut},
+  emphstyle=\color{purple},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  sensitive=true,
+  morecomment=[l]{//},
+  moredelim=**[is][\color{green}]{@}{@},
+}
+
+\lstdefinestyle{customcode} {
+    literate=*{{/*}{\char`/*}}{2} {*{/}{\char`*/}}{2} {*/}{{{\color{commentgreen}*/}}}3,
+}
+
+\lstset{
+    language=C+-,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    frame=shadowbox,
+    rulesepcolor=\color{black},
+    backgroundcolor=\color{white},
+    tabsize=2,
+    gobble=12,
+    linewidth=0.65\linewidth,
+    float=h
+}
+
+
+%% Definicion de operadores especiales para simplificar la escritura matematica
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\divg}{div}
+\newcommand{\dif}[1]{\ d#1}
+\newcommand{\cpm}{C$+$$-$}
+
+%% Paquete e instrucciones para la generacion de los dibujos
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tkz-fct}
+\usepackage{pstricks}
+\usepackage{pstcol} 
+\usepackage{pst-node}
+\usepackage{pst-plot}
+
+%% Paquetes extra
+\usepackage{centernot}  % Paquete para tachar cosas
+\usepackage{appendix}   % Paquete para apéndice
+\usepackage{verbatim}   % Paquete para comentar bloques de código de LaTeX
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Technical specifications of the language}\label{sec:Especificaciones técnicas del lenguaje}
+\subsection{Identifiers and scope of definition}\label{subsec:Identificadores y ámbitos de definición}
+The language has the following characteristics:
+\begin{itemize}
+\item \textbf{Variable declaration}: simple variables of the defined types and \textit{array} variables of these types, of any dimension, can be declared.
+\item \textbf{Nested blocks}: nesting is allowed in conditionals, loops, functions, etc. If two variables have the same name, the deepest one (in the nesting) overrides the outermost one.
+\item \textbf{Functions}: the creation of functions is allowed. Passing by value and by reference of any type to functions is guaranteed.
+\item \textbf{Pointers}: for each type, a pointer to a variable of that type can be declared by assigning its memory address to the pointer variable.
+\item \textbf{Structs and classes}: two additional types are included: structs as “data bags” ---without methods--- and classes, with both data and function methods.
+\item \textbf{Declaration of constants}: the possibility of declaring constants by the user is included.
+\end{itemize}
+
+\subsection{Types}\label{subsec:Tipos}
+The \cpm language is a strongly typed language, where type declarations must be made explicitly and prior to the use of the identifier, i.e., in order to use a variable, I must have declared it beforehand.
+The language consists of the following predefined types:
+\begin{itemize}
+    \item Integers
+    \item Booleans
+    \item Classes
+    \item Records
+    \item Arrays
+    \item Functions
+    \item Pointers
+\end{itemize}
+which are discussed in more detail in \nameref{subsec:Tipado}. It is also possible for the user to declare types using the \texttt{\color{blue}difain} statement. Again, the details are explained in more detail in the corresponding section.
+
+\subsubsection{Integers and booleans}
+The basic types of language are integers and Booleans. Below is the declaration syntax for both and the operations allowed for each. The identifier \texttt{var} corresponds to the identifier assigned to the variable declared with these types.
+\begin{itemize}
+    \item \textbf{Integers}: \texttt{\color{blue} int var;}
+    Operations enabled for the type:
+    \begin{itemize}
+        \item Addition: \texttt{\color{blue} a + b}
+        \item Subtraction: \texttt{\color{blue} a - b}
+        \item Multiplication: \texttt{\color{blue} a * b}
+        \item Division: \texttt{\color{blue} a / b}
+        \item Power: \texttt{\color{blue} a\^{}b}
+        \item Parentheses: \texttt{\color{blue} ()}
+        \item Less than: \texttt{\color{blue} a \textless{} b}
+        \item Greater than: \texttt{\color{blue} a \textgreater{} b}
+        \item Equal to: \texttt{\color{blue} a == b}        
+        \item Less than or equal to: \texttt{\color{blue} a \textless{}= b}
+        \item Greater than or equal to: \texttt{\color{blue} a \textgreater{}= b}
+        \item Not equal: \texttt{\color{blue} a != b}
+    \end{itemize}
+    
+    The literals allowed for assigning a value to integer variables are decimal, binary, and hexadecimal, which will all be converted internally to decimal numbers.
+    \item \textbf{Booleans}: \texttt{\color{blue} bul var;}
+    Operations enabled for the type:
+    \begin{itemize}
+        \item Logical \textit{AND}: \texttt{\color{blue} a an b}
+        \item Logical \textit{OR}: \texttt{\color{blue} a or b}
+        \item Logical \textit{NOT}: \texttt{\color{blue} !a}
+    \end{itemize}
+    
+    The reserved words for defining the two Boolean literals that can be assigned to Boolean variables are \texttt{\color{blue}tru} and \texttt{\color{blue}fols}, indicating true and false, respectively.
+\end{itemize}
+
+
+\subsubsection{Classes and structs}
+Classes and records are non-basic types composed of attributes (records) and attributes and methods (classes). In addition, each element of the class or record may have a visibility to be chosen between \texttt{\color{blue}public} and \texttt{\color{blue}praivet}, the former denoting that the field is accessible by calls from outside the type and the latter that it is only accessible through internal calls of the type. By default, classes will have all their fields private and records public.
+
+\begin{itemize}
+    \item \textbf{Classes}: \texttt{\color{blue} clas var \{...\};}
+    
+    Options enabled for the type:
+    \begin{itemize}
+        \item Access to attributes: \texttt{\color{blue} var.attribute}
+        \item Access to methods: \texttt{\color{blue} var.method()}
+        \item Constructor: \texttt{\color{blue} var(args)}
+    \end{itemize}
+    \item \textbf{Structs}: \texttt{\color{blue} estrut var \{...\};}
+    
+    Options enabled for the type:
+    \begin{itemize}
+        \item Access to attributes: \texttt{\color{blue} var.attribute}
+        \item Constructor: \texttt{\color{blue} var(args)}
+    \end{itemize}
+
+    In both cases, the prefix \texttt{\color{blue}dis} in references to attributes, i.e., \texttt{\color{blue}dis.field}, will allow you to distinguish between the field with that name within the type or the local variable that may have the same name.
+\end{itemize}
+
+\subsubsection{Arrays}
+All types described in this subsection can form a multidimensional array. Array declarations are static, meaning that the size must be known at compile time.
+ 
+\begin{itemize}
+    \item \textbf{Array}: \texttt{\color{blue} Type[DIMENSION] var;}
+    
+    Options enabled for the type:
+    \begin{itemize}
+        \item Access operator: \texttt{\color{blue} var[INDEX]}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Functions}
+The functions, which at first glance might not appear to be a type, have also been declared as one in order to be able to create lambda expressions that can then be passed as arguments to other functions or used in the execution of the program.
+\begin{itemize}
+    \item \textbf{Functions}: \texttt{\color{blue} func foo(Type arg1, ...) : ReturnType \{...; return var;\};}
+\end{itemize}
+If the function does not return any value—which is usually called a \textit{procedure}—the declaration syntax would be changed to
+\begin{itemize}
+    \item \textbf{Functions}: \texttt{\color{blue} func foo(Type arg1, ...) \{...; return;\};}
+\end{itemize}
+
+The final \texttt{\color{blue} return} statement is mandatory, and only one is allowed. Furthermore, it must be the final statement in the body of the function.
+
+As for function parameters, it is possible to pass parameters by value or by reference, with the former being the default option. To explicitly indicate that you want to pass a parameter by reference, you must add the character ``\&'' at the end of the argument type.
+
+Arrays can also be arguments of a function and, unlike primitive types, they are passed by reference by default. It should be noted that it is possible to pass an array of variable size as an argument. In this case, it will be written similarly to the following statement:
+
+\begin{center}
+    \texttt{\color{blue}func foo(int[] array) : ReturnType \{...\}}
+\end{center}
+
+\subsubsection{Pointers}
+Any of the above types, including arrays themselves, can be pointed to by a specific pointer. The declaration of pointers is like the declaration of the type to be pointed to, but with the character \~{} added at the end of the type.
+\begin{itemize}
+    \item \textbf{Pointer\footnote{For clarification, the statement “The declaration of pointers is like the declaration of the type to be pointed to, but adding the character \~{} at the end of the type” remains exactly the same when the type is not a simple type. For example, the declaration of a pointer to an array of any type would be written as \texttt{Type[DIMENSION]\~{} var;}.}}: \texttt{\color{blue} Type\~{} var}
+    
+    Options enabled for the type:
+    \begin{itemize}
+        \item Dynamic memory association: \texttt{\color{blue} var := niu Type}
+        \item Data access: \texttt{\color{blue} \~{}var}
+    \end{itemize}
+\end{itemize}
+The value stored in the pointer is the memory address of the object it points to, which may be a stack or heap address, depending on the case.
+
+\subsubsection{User-defined types and constants}
+In addition to the types declared by us, we allow user-defined types to be defined using the following statement:
+\begin{itemize}
+    \item \textbf{Definition of user types}: \texttt{\color{blue} taipdef newType typeExpression}.
+\end{itemize}
+However, the way to understand this user-declared type is not as a new type but as an alias for the type expression to which it was assigned.
+
+The declaration of literal constants is permitted and implemented using the following statement:
+\begin{itemize}
+    \item \textbf{Declaration of constants}: \texttt{\color{blue} difain NAME value}
+\end{itemize}
+Note that the above expression does not explicitly indicate the type to which the constant belongs, but is implicitly known through the value assigned to the constant identifier.
+
+\subsection{Language statements}\label{subsec:Instrucciones del lenguaje}
+The following is a list of language statements. Pay attention to those that end with the character ``;'' to delimit their end:
+\begin{itemize}
+    \item \textbf{Assignment statement}: \texttt{:=}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.3\linewidth, gobble=16]
+                int var = 3;
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+    
+    \item \textbf{Conditional statement}: \texttt{if-els}, \texttt{suich-queis}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.3\linewidth, gobble=16]
+                if (var > 3) {
+                    ...
+                }
+                els {
+                    ...
+                }
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.3\linewidth, gobble=16]
+                suich (var) {
+                    queis(val1):
+                        ...
+                        breic;
+                    queis(val2):
+                        ...
+                        breic;
+                    difolt:
+                        ...
+                        breic;
+                }
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+
+    \item \textbf{Loop statement}: \texttt{while}, \texttt{for}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.3\linewidth, gobble=16]
+                guail (var > 0) {
+                    ...
+                }
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.5\linewidth, gobble=16]
+                for (int i = 0; i < n; i = i + 1) {
+                    ...
+                }
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+    The statements \texttt{\color{blue} breic} and \texttt{\color{blue} continiu} are also included.
+
+    \item \textbf{Input-output statements}: \texttt{\color{blue} cein()} and \texttt{\color{blue} ceaut()}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.3\linewidth, gobble=16]
+                cein(var);
+                ceaut(var);
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+    
+    \item \textbf{Function return statement}: \texttt{\color{blue} return}
+    \begin{center}
+        \begin{minipage}{\linewidth}
+            \begin{lstlisting}[linewidth=0.5\linewidth, gobble=16]
+                func foo(Tipo arg) : ReturnType {
+                    ReturnType var;
+                    ...
+                    return var;
+                }
+            \end{lstlisting}
+        \end{minipage}
+    \end{center}
+
+\end{itemize}
+
+\subsection{Code structure elements}\label{subsec:Elementos de la estructura del código}
+The code will begin with the definition—separate or intermingled—of composite types (classes, records, functions, etc.), user types, and program constants. Finally, the main function of the program will begin, serving as the entry point, which we denote by \texttt{\color{blue} func mein() : int \{...; return 0;\}}.
+
+It is important to note that, unlike other languages such as Python, where code execution does not require a “special” function to serve as the entry point for the program, in our language it is mandatory that the program code be inside this final function and that only the declaration of types and constants that we have explained previously be allowed outside of it. This means that any global variable or expression outside of \texttt{mein} that does not comply with these restrictions will be understood as a syntactic error.
+
+On the other hand, it includes the possibility of writing comments in the code, that is, lines that will be ignored at compile time. Both single-line comments, preceded by ``//'' and terminated by a line break, and multi-line comments, preceded by ``/*'' and terminated by ``*/'' are allowed.
+
+Below is an example of code that complies with the stipulated restrictions:
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \begin{lstlisting}[linewidth=0.7\linewidth, gobble=16]
+                func mein() : int {
+                    // The execution of the program begins here
+                    int var = 3;
+                    @/*@
+                    @The next function call computes @
+                    @the factorial of the variable var.@
+                    @We store the value in the variable res@
+                    @to show it on screen afterwards.@
+                    @*/@
+                    int res = factorial(var);
+                    ceaut(res);
+                    return 0;
+                }
+        \end{lstlisting}
+    \end{minipage}
+\end{center}
+
+\section{Lexical specification of the language}\label{sec:Especificación léxica del lenguaje}
+During the previous explanation of the language specifications, some of the reserved words or spellings used to perform certain operations have already been presented. Below, the elements of the language and the symbols reserved for each purpose are explained in more detail.
+
+\begin{itemize}
+    \item Variable identifier names must be alphanumeric expressions that do not begin with numbers and may contain the character ``\_''.
+    \item The literals allowed for integers are decimal (e.g., \texttt{var = 10}), binary (e.g., \texttt{var = 0b1001}), and hexadecimal (e.g., \texttt{var = 0x1F2BC}).
+    \item The allowed literals for booleans are the reserved words \texttt{tru} and \texttt{fols}.
+    \item Whitespace, tabs, and line breaks are removed internally during lexical recognition.
+    \item Single-line comments begin with // and multi-line comments with /**/. These elements are removed during lexical recognition.
+    \item The reserved words for defined types and their operators are those specified in the corresponding sections of \nameref{subsec:Tipos}.
+    \item The delimiters for function bodies and statements \texttt{guail}, \texttt{if}, etc. are curly braces \{\}.
+    \item The delimiter for the end of an statement or block in those that require it is ;.
+    \item The word \texttt{niu} is reserved for heap memory allocation.
+    \item The words \texttt{taipdef} and \texttt{difain} are reserved for the definition of types and constants.
+    \item The words and symbols reserved for the statement repertoire are those declared in the section \nameref{subsec:Instrucciones del lenguaje}.
+    \item The word reserved for the main function of the program is \texttt{main}.
+\end{itemize}
+
+The regular expressions that define the elements of the lexicon described here can be found in the document \textit{lexicon.l}.
+
+\section{Semantics}
+
+The following shows the semantics of the language associated with the syntactic construction that generates it. Due to space limitations, not all semantic definitions are included, only the most relevant ones. For the complete list, please refer to the \textit{Tiny.cup} document.
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & Prog : Declaration $\times$ MainFunction $\rightarrow$ Program \\
+        \hline
+        Description & Build a program from a series of definitions and a main function. \texttt{mein}. \\
+        \hline
+        Syntax & \texttt{Definitions \&\& mein} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & classDef : String $\times$ ClassBody $\rightarrow$ Class \\
+        \hline
+        Description & Build a class definition given a name and a class body.\\
+        \hline
+        Syntax & \texttt{clas id \{ classBody \}} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+        \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+            \hline
+            Constructor & structDef : String $\times$ SturctBody $\rightarrow$ Struct \\
+            \hline
+            Description & Build a record definition given a name and a record body.\\
+            \hline
+            Syntax & \texttt{estrut id \{ structBody \}} \\
+            \hline
+        \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & funcDef : String $\times$ Type $\times$ FunctionBody $\rightarrow$ Struct \\
+        \hline
+        Description & Build a function definition with return type given a name and a function body. \\
+        \hline
+        Syntax & \texttt{func id \{ cuerpoStruct \}} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & typeDef : String $\times$ String $\times$ String $\rightarrow$ Type \\
+        \hline
+        Description & Build a type definition as an alias. \\
+        \hline
+        Syntax & \texttt{taipdef previousType newType;} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & decVar : Type $\times$ String $\rightarrow$ Declaration \\
+        \hline
+        Description & Builds a variable declaration of the specified type. \\
+        \hline
+        Syntax & \texttt{Type id;} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & Asign Ins : Id $\times$ Expression $\rightarrow$ Statement \\
+        \hline
+        Description & Builds an assignation sentence. \\
+        \hline
+        Syntax & \texttt{Id = Expression;} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & If Ins : Expression $\times$ Block $\rightarrow$ Statement \\
+        \hline
+        Description & Builds the conditional \texttt{If} statement. \\
+        \hline
+        Syntax & \texttt{If (Expression) \{Block\}} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & While Ins : Expression $\times$ Block $\rightarrow$ Statement \\
+        \hline
+        Description & Builds the iterative \texttt{While} statement. \\
+        \hline
+        Syntax & \texttt{guail (Expression) \{Block\}} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & Asign Ins : Id $\times$ Expression $\rightarrow$ Statement \\
+        \hline
+        Description & Builds the assignation statement. \\
+        \hline
+        Syntax & \texttt{Id = Expression;} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}[h]{|p{0.15\textwidth}|p{0.65\textwidth}|}
+        \hline
+        Constructor & New Ins : Id $\times$ Expression $\rightarrow$ Statement \\
+        \hline
+        Description & Builds the dynamic memory allocation \texttt{New} statement. \\
+        \hline
+        Syntax & \texttt{Id = niu Expression;} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Binding}
+\label{subsec:Binding}
+Binding is the association between an identifier and the object it designates (variables, constants, functions, etc.). We distinguish between identifiers introduced with their definition (in a variable declaration, a constant, a function definition, or type aliases, etc.) and occurrences of use (all other occurrences).
+
+
+We relate the occurrences of an identifier's use with its definition occurrence by traversing the AST, connecting each usage node with a reference to its corresponding definition node, using a stack of auxiliary symbol tables that stores the definitions of the symbols, taking into account the nesting levels of the program (each table associated with a scope).
+
+As for user-defined types (typedef, class, and struct), we associate them with a table that stores the name (String) and the root definition (AST node of the definition). We apply a reserved word policy with the definitions that are declared to prevent those same type names from being used to declare new structs or classes. As for type aliases, these reserved words only prevent them from being used as aliases for another type that has already been created. In turn, we take advantage of the data structure we have so that aliases are associated with the original definition node of the type (and to also be able to take advantage of this construction with primitive types, we first put them in the definition table as if every program had those basic “user-declared” types implicitly).
+
+We have a prior declaration policy for any use of identifiers: in order to use them, they must first be declared. In the case of recursive functions, as they are within the definition of the function, they are already considered to be declared.
+
+C+- supports overloading by arguments, same function name, and different argument types (regardless of the return type). Therefore, during binding, we associate each use of a function identifier with a list of possible functions, and the specific function will be determined at type checking.
+
+We have visibility of variable declarations according to the scope in which they are located: the innermost link hides the outermost one.
+
+\subsection{Typing}
+\label{subsec:Tipado}
+%%FIXME Poner un enlace al apartado 1.2, que no estoy seguro de como se hace
+As mentioned in section 1.2, this language is strongly typed. Thus, the type of all elements of the code is known at compile time. As explained in that section, we allow the declaration of constants with the clause \texttt{\color{blue}difain}. These constants also have a type that is known at compile time: it is not a simple alias, but if it cannot be typed as one of the types allowed in the language, the compiler will interrupt and warn the user.
+
+In general, compatibility between different types does not exist; you cannot make assignments between different types or work with them indistinguishably.
+
+However, there is one exception to this rule, which is pointers and arrays. These two types are compatible, as long as their internal types are compatible. Thus, when declaring a variable of type \texttt{\color{blue}int[5]} and another of type \texttt{\color{blue}int\~}, it is possible to assign values between them. However, this would not be possible if the array type were \texttt{\color{blue}bul[5]}, for example.
+
+This design decision raises another requirement: arrays are useless if they cannot be iterated over. Therefore, a method must be enabled to “iterate over pointers” when we know that they point to an array. For this reason, the language overloads the binary operators \texttt{\color{blue}+} and \texttt{\color{blue}-}. This way, we can iterate over a pointer by using an statement such as \texttt{\color{blue}ptr = ptr +/- 1}, which provides behavior similar to that of an iterator as provided by higher-level languages. It should be noted that this is the only exception regarding these operators: it is allowed to operate a pointer or array with an integer (and, in the case of subtraction, the integer must be the right operand). These operators cannot be used for other cases. It should be noted that, to move forward or backward with a pointer, \texttt{\color{blue}+ 1} or \texttt{\color{blue}- 1} will always be used, regardless of the size of the internal type.
+
+Below is an example of what we have mentioned:
+
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of using arrays and pointers in equivalent ways.}]{../codes/pointerArrayExample.cpm}
+
+In the previous example, a list of 5 integers is created, each position containing its own position as a value. After this, a pointer is declared that “points” to the same list, and finally another loop is iterated, printing the value of each position in the array along with the value of the pointer. The result of the execution will be the sequence \texttt{\color{blue}0011223344}, as expected, since what we are doing is basically printing each value of the array twice in a row.
+
+\subsubsection{Types in functions}
+By default, parameters are passed by value in function calls. However, passing parameters by reference is allowed by adding the \texttt{\color{blue}\&} operator to the argument in the function declaration. Internally, this corresponds to passing a pointer instead of the value. To be clearer, when a parameter is passed by reference to a function, internally a pointer to the variable in question is being passed, but within the body of the function it will be interpreted as what it is, a pointer, and operations will be executed accordingly. In this way, we allow the user to use and modify the actual value of the parameters, but we do not ask them to handle the data differently than they normally would.
+
+In addition to everything mentioned above, we must specify a particular case, which is that of arrays. In the case of arrays, explicit pass-by-reference is not allowed; rather, it is the default. In other words, arrays are not passed by copy. This is done for two reasons: the first is that it is generally very expensive. It involves unnecessary expenditure of time and memory, and doing it this way does not prevent the user from doing anything; they can make copies within the function. The second is that it brings consistency to the passing of dynamic arrays. In our language, arrays are allowed to have no defined size as a function parameter, and their handling is different from that of normal arrays. In particular, the most reasonable thing in this case is for modifications to the array within the function to translate into changes outside it, and forcing this to be the default behavior makes everything more homogeneous and understandable.
+
+Finally, similar to forcing arrays to be passed to functions by reference, among other things, due to the cost involved, the return type of functions is also restricted, so that any type except arrays is allowed as a return type. If you want to do something similar to returning an array as the return value of a function, you must create it before calling the function and pass it by reference to the function. In this way, the size of the function's “return” array is not restricted; it is sufficient to declare the argument as a dynamic array, i.e., without a defined size.
+
+\newpage
+\appendix
+
+\section{Examples of common programs}\label{sec:Ejemplos de programas habituales}
+Below are a series of simple examples of how certain programs would be written in our language. However, there is a wide variety of sample code to try out in the project's \textit{test} folder.
+
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of common $C+-$ program.}]{../codes/mainExample.cpm}
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of iterative $C+-$ program.}]{../codes/iterativeExample.cpm}
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of $C+-$ multidimensional programs.}]{../codes/matrixExample.cpm}
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of recursive program in $C+-$ using \texttt{if-els}.}]{../codes/conditionalExample.cpm}
+\lstinputlisting[language=C+-, linewidth=\linewidth, caption={Example of structs and the \texttt{suich} sentence in $C+-$.}]{../codes/structExample.cpm}
+\end{document}

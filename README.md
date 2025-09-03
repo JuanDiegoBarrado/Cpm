@@ -17,7 +17,7 @@ This repository contains the full **compiler implementation**, including:
 - **Binding & typing**  
 - **Code generation**  
 
-📄 The complete **language specification** is available in [`doc/specifications/Info.pdf`](doc/specifications/Info.pdf).
+📄 The complete **language specification** is available in [`doc/specifications/Info_en.pdf`](doc/specifications/Info_en.pdf).
 
 ### Features
 - Complete compiler from source code to executable.
